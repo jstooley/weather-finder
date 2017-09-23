@@ -16,4 +16,6 @@ class WeatherFinder::Scrapper
     @uv.gsub!("UV Index ", "")
   end
 
+  def self.hourly_weather(zip_code)
+  end
 end

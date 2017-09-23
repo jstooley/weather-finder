@@ -13,7 +13,7 @@ class WeatherFinder::CLI
         puts "Invalid Input"
       end
     end# end of while loop
-    goodbye
+    self.goodbye
   end # call method end
 
   def weather(zip_code)# prints current weather
@@ -23,13 +23,27 @@ class WeatherFinder::CLI
     puts "But it feels like #{weather[2]}"
     puts "With a UV index of #{weather[1]}"
     puts "**************************************"
+    self.menu(zip_code)
   end
 
   def weather_info
-
   end# end of weather_info
 
   def menu
+    input = nil
+    while input != 'back'
+      puts "Would you like to look at the hourly or 10 day forcast?"
+      puts "Type 'hourly' or '10 day' to choose."
+      puts "type 'back' to choose a different zip code."
+      puts "Or type 'exit' to quit."
+      input = gets.chomp
+      if input.downcase == 'hourly'
+      elsif input.downcase == '10 day' || input.downcase == 'ten day'
+      elsif input.downcase == 'back'
+      elsif input.downcase == 'exit'
+      else
+      end
+    end
   end
 
   def goodbye # prints goodbye messages and exits program

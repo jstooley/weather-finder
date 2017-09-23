@@ -10,9 +10,9 @@ USA_ZIP_CODES = [[*35801..35816],
 [*39530..39535],[*63101..63141],[*68901..68902],[*89501..89513],
 [*87500..87506],[*10001..10048],[*44101..44179],[*74101..74110],
 [*97201..97225],[*15201..15244],[*2840..2841],[*57401..57402],
-[*37201..37222],[*78701..78705],[*84321..84323],[*98004..98009],[*53201..53228]]
+[*37201..37222],[*78701..78705],[*84321..84323],[*98004..98009],
+[*53201..53228],[83254,49036,3217,7039,27565,58282,29020,5751,24517,82941,25813,59044]]
 
-USA_ZIP_CODES_SINGLES = [83254,49036,3217,7039,27565,58282,29020,5751,24517,82941,25813,59044]
 
   def call
     input = ""
@@ -22,7 +22,7 @@ USA_ZIP_CODES_SINGLES = [83254,49036,3217,7039,27565,58282,29020,5751,24517,8294
       puts "exit to quit"
       input = gets.chomp
       state = self.zip_code?(input)
-      if state
+      if state && input.length == 5
         weather(input)
       elsif !state && input.downcase != 'exit'
         puts "Invalid Input"
@@ -82,16 +82,11 @@ USA_ZIP_CODES_SINGLES = [83254,49036,3217,7039,27565,58282,29020,5751,24517,8294
       state.each do |zip|
         if zip == zip_code.to_i
           valid = true
-        else
-          USA_ZIP_CODES_SINGLES.each do |single_zip|
-            if single_zip == zip_code.to_i
-              valid = true
-            end
-          end
         end
       end
-      valid
     end
+    valid
+
 
   end
 end

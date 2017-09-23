@@ -2,10 +2,16 @@ class WeatherFinder::CLI
 
   def call
     input = ""
+
     while input != "exit"
-      puts "What is the zip code you would like to know the weather at"
+      puts "What is the zip code you would like to know the weather at?"
       input = gets.chomp
-    end
+      if input.to_i >= 1000 && input.to_i <= 100000 && input.length == 5
+        puts 'Valid'
+      elsif (input.to_i <= 1000 || input.to_i >= 100000 || input.to_i == 0 || input.length != 5) && input.downcase != 'exit'
+        puts "Invalid Input"
+      end
+    end# end of while loop
     goodbye
   end # call method end
 

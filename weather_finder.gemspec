@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Justin Tooley'"]
   spec.email         = ["'jstooley823@gmail.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{fins weather near you using zip code}
+  spec.homepage      = "https://github.com/jstooley/weather_finder.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

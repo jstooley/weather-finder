@@ -22,4 +22,11 @@ class WeatherFinder::Scrapper
     hourl_doc = Nokogiri::HTML(open("#{hourly_url}"))
     binding.pry
   end
+
+  def self.ten_day_weather(zip_code)
+    doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{zip_code}:4:US"))
+    ten_day_url = doc.css("ul li a")[2]['href']
+    ten_day_doc = Nokogiri::HTML(open("#{ten_day_url}"))
+    binding.pry
+  end
 end

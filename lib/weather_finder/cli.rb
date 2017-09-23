@@ -18,12 +18,19 @@ class WeatherFinder::CLI
 
   def weather(zip_code)# prints current weather
     weather = WeatherFinder::Scrapper.basic_weather(zip_code)
-    puts "#{weather}"
+    puts "**************************************"
+    puts "It is currently #{weather[0]}"
+    puts "But it feels like #{weather[2]}"
+    puts "With a UV index of #{weather[1]}"
+    puts "**************************************"
   end
 
   def weather_info
 
   end# end of weather_info
+
+  def menu
+  end
 
   def goodbye # prints goodbye messages and exits program
     puts "cya later nerd!"

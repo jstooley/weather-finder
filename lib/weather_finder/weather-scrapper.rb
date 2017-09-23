@@ -19,16 +19,18 @@ class WeatherFinder::Scrapper
   def self.hourly_weather(zip_code)
     doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{zip_code}:4:US"))
     hourly_url = doc.css("ul li a")[1]['href']
-    hourl_doc = Nokogiri::HTML(open("https://weather.com#{hourly_url}"))
-    binding.pry
-    time = hourl_doc.css(".dsx-date").text
-    day= hourl_doc.css(".hourly-date").text
-    descrition = hourl_doc.css(".description").text
-    temp = hourl_doc.css(".temp").text
-    temp = hourl_doc.css(".feels").text
-    temp = hourl_doc.css(".precip").text
-    temp = hourl_doc.css(".humidity").text
-    temp = hourl_doc.css(".wind").text
+    hourly_doc = Nokogiri::HTML(open("https://weather.com#{hourly_url}"))
+    hourly_doc.css("tbody tr").each do |row|
+      time = row.css(".dsx-date").text
+      day= row.css(".hourly-date").text
+      descrition = row.css(".description").text
+      temp = row.css(".temp").text
+      feels = row.css(".feels").text
+      percip = row.css(".precip").text
+      humidity = row.css(".humidity").text
+      temp = row.css(".wind").text
+      binding.pry
+    end
   end
 
   def self.ten_day_weather(zip_code)

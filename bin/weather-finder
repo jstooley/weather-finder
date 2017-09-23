@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "weather_finder"
 
-puts "hello world"
+WeatherFinder::CLI.new.call

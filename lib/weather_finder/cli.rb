@@ -17,8 +17,8 @@ class WeatherFinder::CLI
   end # call method end
 
   def weather(zip_code)# prints current weather
-    weather = WeatherFinder::Scrapper.new(zip_code)
-    puts "#{weather.zip_code}"
+    weather = WeatherFinder::Scrapper.basic_weather(zip_code)
+    puts "#{weather}"
   end
 
   def weather_info

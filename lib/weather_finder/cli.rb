@@ -1,6 +1,7 @@
 class WeatherFinder::CLI
 
   def call
+    puts "Hello"
   end # call method end
 
   def deals(deals)# prints all deals of a chosen site

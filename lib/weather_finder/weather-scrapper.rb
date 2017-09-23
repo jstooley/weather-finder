@@ -18,6 +18,8 @@ class WeatherFinder::Scrapper
 
   def self.hourly_weather(zip_code)
     doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{zip_code}:4:US"))
+    hourly_url = doc.css("ul li a")[1]['href']
+    hourl_doc = Nokogiri::HTML(open("#{hourly_url}"))
     binding.pry
   end
 end

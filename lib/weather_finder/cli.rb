@@ -71,11 +71,11 @@ USA_ZIP_CODES = [[*35801..35816],
   end#end of menu
 
   def goodbye # prints goodbye messages and exits program
-    puts "cya later nerd!"
+    puts "Enjoy your day!"
     exit
   end
 
-  def zip_code?(zip_code)
+  def zip_code?(zip_code) #takes all zip codes and compares them to given zip
     valid = false
 
     USA_ZIP_CODES.each do |state|
@@ -86,7 +86,5 @@ USA_ZIP_CODES = [[*35801..35816],
       end
     end
     valid
-
-
-  end
+  end#end of zip code validation
 end

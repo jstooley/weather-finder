@@ -1,8 +1,6 @@
 class WeatherFinder::Scrapper
   attr_accessor :temp, :uv, :feels_like, :ten_day_arraay, :hourly_array
 
-
-
   def self.basic_weather(zip_code)
     self.basic_scrapper(zip_code)
     [@temp,@uv,@feel_like]
@@ -36,7 +34,6 @@ class WeatherFinder::Scrapper
 
     end
     @hourly_array
-
   end
 
   def self.ten_day_weather(zip_code)

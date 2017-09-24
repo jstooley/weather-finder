@@ -16,22 +16,25 @@ class WeatherFinder::CLI
         puts "Invalid Input"
       end
     end# end of while loop
-
     self.goodbye
   end # call method end
 
   def weather(zip_code)# prints current weather
     weather = WeatherFinder::Scrapper.basic_weather(zip_code)
+
     puts "**************************************"
     puts "It is currently #{weather[0]}"
     puts "But it feels like #{weather[2]}"
     puts "With a UV index of #{weather[1]}"
     puts "**************************************"
+
     self.menu(zip_code)
   end
 
   def weather_hourly(zip_code)
+
     hourly_weather = WeatherFinder::Scrapper.hourly_weather(zip_code)
+
     puts "------------------------------------------------------------------------"
     hourly_weather.each do |row|
       print "Time:#{row[0]} "
@@ -46,7 +49,9 @@ class WeatherFinder::CLI
   end# end of weather_hourly
 
   def weather_ten_day(zip_code)
+
     ten_day_weather = WeatherFinder::Scrapper.ten_day_weather(zip_code)
+    
     puts "------------------------------------------------------------------------"
     ten_day_weather.each do |row|
       print "Day:#{row[0]} "

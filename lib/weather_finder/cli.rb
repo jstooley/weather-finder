@@ -107,17 +107,11 @@ USA_ZIP_CODES = [
     valid = false
 
     File.open("../weather_finder/lib/weather_finder/all_usa_zip.txt").each do |zip|
-      if zip == zip_code
+      if zip.to_i == zip_code.to_i
         valid = true
       end
     end
-    #USA_ZIP_CODES.each do |state|
-    #  state.each do |zip|
-    #    if zip == zip_code.to_i
-    #      valid = true
-    #    end
-    #  end
-    #end
+
     valid
   end#end of zip code validation
 end

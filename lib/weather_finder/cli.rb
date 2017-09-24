@@ -51,7 +51,7 @@ class WeatherFinder::CLI
   def weather_ten_day(zip_code)
 
     ten_day_weather = WeatherFinder::Scrapper.ten_day_weather(zip_code)
-    
+
     puts "------------------------------------------------------------------------"
     ten_day_weather.each do |row|
       print "Day:#{row[0]} "
@@ -99,7 +99,7 @@ class WeatherFinder::CLI
   def zip_code?(zip_code) #takes all zip codes and compares them to given zip
     valid = false
 
-    File.open("../weather_finder/lib/weather_finder/all_usa_zip.txt").each do |zip| #read from file to test valid zip
+    File.open("./lib/weather_finder/all_usa_zip.txt").each do |zip| #read from file to test valid zip
       if zip.to_i == zip_code.to_i
         valid = true
       end

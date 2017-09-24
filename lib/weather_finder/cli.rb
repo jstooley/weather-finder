@@ -55,6 +55,10 @@ USA_ZIP_CODES = [
     end
   end# end of weather_hourly
 
+  def weather_ten_day
+    ten_day_weather = WeatherFinder::Scrapper.ten_day_weather(zip_code)
+  end# end of weather ten day
+
   def menu(zip_code)
     input = ""
 
@@ -69,7 +73,7 @@ USA_ZIP_CODES = [
       if input.downcase == 'hourly'
         self.weather_hourly(zip_code)
       elsif input.downcase == '10 day' || input.downcase == 'ten day'
-        puts "10 day data"
+        self.weather_ten_day(zip_code)
       elsif input.downcase == 'back'
         self.call
       elsif input.downcase == 'exit'

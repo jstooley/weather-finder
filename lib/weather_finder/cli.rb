@@ -44,6 +44,15 @@ USA_ZIP_CODES = [
 
   def weather_hourly(zip_code)
     hourly_weather = WeatherFinder::Scrapper.hourly_weather(zip_code)
+    hourly_weather.each do |row|
+      print "Time:#{row[0]} "
+      print "Description:#{row[1]} "
+      print "Temp:#{row[2]} "
+      print "Feels Like:#{row[3]} "
+      print "Percip:#{row[4]} "
+      print "Humidity:#{row[5]} "
+      puts  "Wind:#{row[6]} "
+    end
   end# end of weather_hourly
 
   def menu(zip_code)

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = WeatherFinder::VERSION
   spec.authors       = ["'Justin Tooley'"]
   spec.email         = ["'jstooley823@gmail.com'"]
-
+  spec.files         = ["lib/weather_finder/all_usa_zip.txt"]
   spec.summary       = %q{finds weather near you using zip code}
   spec.homepage      = "https://github.com/jstooley/weather_finder.git"
   spec.license       = "MIT"

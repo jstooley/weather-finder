@@ -99,7 +99,7 @@ class WeatherFinder::CLI
   def zip_code?(zip_code) #takes all zip codes and compares them to given zip
     valid = false
 
-    File.open("./lib/weather_finder/all_usa_zip.txt").each do |zip| #read from file to test valid zip
+    File.open("lib/weather_finder/all_usa_zip.txt").each do |zip| #read from file to test valid zip
       if zip.to_i == zip_code.to_i
         valid = true
       end

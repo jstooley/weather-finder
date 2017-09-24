@@ -48,14 +48,16 @@ class WeatherFinder::Scrapper
 
       time = row.css(".date-time").text
       descrip = row.css(".description").text
-      temp = row.css(".temp").text
+      high = row.css(".temp span")[0].text
+      low = row.css(".temp span")[2].text
       precip = row.css(".precip").text
       humidity = row.css(".humidity").text
       wind = row.css(".wind").text
 
-      ten_day_array[i] = [time,descrip,temp,precip,humidity,wind]
-      binding.pry
+      ten_day_array[i] = [time,descrip,high,low,precip,humidity,wind]
+
 
     end
+    binding.pry
   end
 end

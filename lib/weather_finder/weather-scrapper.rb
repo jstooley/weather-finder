@@ -55,9 +55,7 @@ class WeatherFinder::Scrapper
       wind = row.css(".wind").text
 
       ten_day_array[i] = [time,descrip,high,low,precip,humidity,wind]
-
-
     end
-    binding.pry
-  end
+  end#end of ten day weather
+
 end

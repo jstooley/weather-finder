@@ -57,6 +57,15 @@ USA_ZIP_CODES = [
 
   def weather_ten_day
     ten_day_weather = WeatherFinder::Scrapper.ten_day_weather(zip_code)
+    ten_day_weather.each do |row|
+      print "Time:#{row[0]} "
+      print "Description:#{row[1]} "
+      print "High:#{row[2]} "
+      print "Low:#{row[3]} "
+      print "Percip:#{row[4]} "
+      print "Humidity:#{row[5]} "
+      puts  "Wind:#{row[6]} "
+    end
   end# end of weather ten day
 
   def menu(zip_code)

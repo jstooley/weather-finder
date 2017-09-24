@@ -1,5 +1,5 @@
 class WeatherFinder::Scrapper
-  attr_accessor :temp, :uv, :feels_like
+  attr_accessor :temp, :uv, :feels_like, :ten_day_arraay, :hourly_array
 
 
 
@@ -17,7 +17,7 @@ class WeatherFinder::Scrapper
   end
 
   def self.hourly_weather(zip_code)
-    hourly_array = []
+    @hourly_array = []
 
     doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{zip_code}:4:US"))
     hourly_url = doc.css("ul li a")[1]['href']
@@ -32,15 +32,15 @@ class WeatherFinder::Scrapper
       humidity = row.css(".humidity").text
       wind = row.css(".wind").text
 
-      hourly_array[i] = [time,descrip,temp,feels,precip,humidity,wind]
+      @hourly_array[i] = [time,descrip,temp,feels,precip,humidity,wind]
 
     end
-    hourly_array
+    @hourly_array
 
   end
 
   def self.ten_day_weather(zip_code)
-    ten_day_array = []
+    @ten_day_array = []
     doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{zip_code}:4:US"))
     ten_day_url = doc.css("ul li a")[2]['href']
     ten_day_doc = Nokogiri::HTML(open("https://weather.com#{ten_day_url}"))
@@ -54,9 +54,9 @@ class WeatherFinder::Scrapper
       humidity = row.css(".humidity").text
       wind = row.css(".wind").text
 
-      ten_day_array[i] = [time,descrip,high,low,precip,humidity,wind]
+      @ten_day_array[i] = [time,descrip,high,low,precip,humidity,wind]
     end
-    ten_day_array
+    @ten_day_array
   end#end of ten day weather
 
 end

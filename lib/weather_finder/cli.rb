@@ -106,7 +106,7 @@ USA_ZIP_CODES = [
   def zip_code?(zip_code) #takes all zip codes and compares them to given zip
     valid = false
 
-    File.open("all_usa_zip.txt").each do |zip|
+    File.open("../weather_finder/lib/weather_finder/all_usa_zip.txt").each do |zip|
       if zip == zip_code
         valid = true
       end
@@ -117,7 +117,7 @@ USA_ZIP_CODES = [
     #      valid = true
     #    end
     #  end
-    end
+    #end
     valid
   end#end of zip code validation
 end

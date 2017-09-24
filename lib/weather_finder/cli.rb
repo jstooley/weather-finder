@@ -106,12 +106,17 @@ USA_ZIP_CODES = [
   def zip_code?(zip_code) #takes all zip codes and compares them to given zip
     valid = false
 
-    USA_ZIP_CODES.each do |state|
-      state.each do |zip|
-        if zip == zip_code.to_i
-          valid = true
-        end
+    File.open("all_usa_zip.txt").each do |zip|
+      if zip == zip_code
+        valid = true
       end
+    end
+    #USA_ZIP_CODES.each do |state|
+    #  state.each do |zip|
+    #    if zip == zip_code.to_i
+    #      valid = true
+    #    end
+    #  end
     end
     valid
   end#end of zip code validation

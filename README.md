@@ -1,6 +1,8 @@
 # WeatherFinder
 
-Goes to weather.com and finds the weather based on your zip code
+Goes to weather.com and finds the weather based on your zip code. Gives a basic overview then can go get an hourly forecast or
+10 day forecast.
+
 
 ## Installation
 

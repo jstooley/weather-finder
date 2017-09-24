@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "exe"
-  spec.executables   = "weather-finder"
+  spec.executables   = "./bin/weather-finder"
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.15"

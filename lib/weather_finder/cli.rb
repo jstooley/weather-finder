@@ -44,6 +44,7 @@ USA_ZIP_CODES = [
 
   def weather_hourly(zip_code)
     hourly_weather = WeatherFinder::Scrapper.hourly_weather(zip_code)
+    puts "------------------------------------------------------------------------"
     hourly_weather.each do |row|
       print "Time:#{row[0]} "
       print "Description:#{row[1]} "
@@ -52,19 +53,22 @@ USA_ZIP_CODES = [
       print "Percip:#{row[4]} "
       print "Humidity:#{row[5]} "
       puts  "Wind:#{row[6]} "
+      puts "------------------------------------------------------------------------"
     end
   end# end of weather_hourly
 
-  def weather_ten_day
+  def weather_ten_day(zip_code)
     ten_day_weather = WeatherFinder::Scrapper.ten_day_weather(zip_code)
+    puts "------------------------------------------------------------------------"
     ten_day_weather.each do |row|
-      print "Time:#{row[0]} "
+      print "Day:#{row[0]} "
       print "Description:#{row[1]} "
       print "High:#{row[2]} "
       print "Low:#{row[3]} "
       print "Percip:#{row[4]} "
       print "Humidity:#{row[5]} "
       puts  "Wind:#{row[6]} "
+      puts "------------------------------------------------------------------------"
     end
   end# end of weather ten day
 

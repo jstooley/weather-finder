@@ -56,6 +56,7 @@ class WeatherFinder::Scrapper
 
       ten_day_array[i] = [time,descrip,high,low,precip,humidity,wind]
     end
+    ten_day_array
   end#end of ten day weather
 
 end

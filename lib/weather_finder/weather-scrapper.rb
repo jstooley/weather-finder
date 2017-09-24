@@ -40,9 +40,22 @@ class WeatherFinder::Scrapper
   end
 
   def self.ten_day_weather(zip_code)
+    ten_day_array = []
     doc = Nokogiri::HTML(open("https://weather.com/weather/today/l/#{zip_code}:4:US"))
     ten_day_url = doc.css("ul li a")[2]['href']
     ten_day_doc = Nokogiri::HTML(open("https://weather.com#{ten_day_url}"))
-    binding.pry
+    ten_day_doc.css("tbody tr").each_with_index do |row, i|
+
+      time = row.css(".dsx-date").text
+      descrip = row.css(".description").text
+      temp = row.css(".temp").text
+      feels = row.css(".feels").text
+      precip = row.css(".precip").text
+      humidity = row.css(".humidity").text
+      wind = row.css(".wind").text
+
+      ten_day_array[i] = [time,descrip,temp,feels,precip,humidity,wind]
+
+    end
   end
 end

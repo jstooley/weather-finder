@@ -1,3 +1,4 @@
+require 'pry'
 class WeatherFinder::CLI
 
   def call
@@ -33,17 +34,18 @@ class WeatherFinder::CLI
 
   def weather_hourly(zip_code)
 
-    hourly_weather = WeatherFinder::Scrapper.hourly_weather(zip_code)
+    WeatherFinder::Scrapper.hourly_weather(zip_code)
+    binding.pry
 
     puts "------------------------------------------------------------------------"
-    hourly_weather.each do |row|
-      print "Time:#{row[0]} "
-      print "Description:#{row[1]} "
-      print "Temp:#{row[2]} "
-      print "Feels Like:#{row[3]} "
-      print "Percip:#{row[4]} "
-      print "Humidity:#{row[5]} "
-      puts  "Wind:#{row[6]} "
+    WeatherFinder::HourlyWeather.all.each do |hourly|
+      print "Time:#{hourly.time} "
+      print "Description:#{hourly.descrip} "
+      print "Temp:#{hourly.temp} "
+      print "Feels Like:#{hourly.feels} "
+      print "Percip:#{hourly.precip} "
+      print "Humidity:#{hourly.humidity} "
+      puts  "Wind:#{hourly.wind} "
       puts "------------------------------------------------------------------------"
     end
   end# end of weather_hourly

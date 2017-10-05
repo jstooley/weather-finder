@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "weather_finder"
+require_relative "../lib/weather_finder"
 
 WeatherFinder::CLI.new.call

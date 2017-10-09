@@ -72,7 +72,7 @@ class WeatherFinder::CLI
 
     while input.downcase != 'back' || input.downcase != 'exit'
 
-      puts "Would you like to look at the hourly or 10 day forcast?"
+      puts "Would you like to look at the hourly or 10 day forecast?"
       puts "Type 'hourly' or '10 day' to choose."
       puts "type 'back' to choose a different zip code."
       puts "Or type 'exit' to quit."

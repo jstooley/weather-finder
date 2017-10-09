@@ -21,20 +21,22 @@ Or install it yourself as:
 
 ## Usage
 
-1. `basic_weather`
+`basic_weather`
 
-Based on the zip code if you would like to get [Current Temp, UV Index, Feels Like]
+Based on the zip code if you would like to get `[temperature, uv index, feels like]`
 
 ```ruby
 WeatherFinder::Scrapper.basic_weather(94041)
 
 #=> ["66°", "0 of 10", "66°"]
+
 ```
 
-2. `hourly_weather`
+`hourly_weather`
 
 Based on the zip code if you would like to get the hourly weather. Data will be returned as two dimensional array:
-[[time, description, temperature, feels like, precipitation, humidity, wind], [.......],[.......]]
+
+`[[time, description, temperature, feels like, precipitation, humidity, wind], [.......],[.......]]`
 
 ```ruby
 WeatherFinder::Scrapper.hourly_weather(94041)
@@ -43,10 +45,11 @@ WeatherFinder::Scrapper.hourly_weather(94041)
 
 ```
 
-3. `ten_day_weather`
+`ten_day_weather`
 
 Based on the zip code if you would like to get the 10 day weather. Data will be returned as two dimensional array:
-[[day, description, high, low, precipitation, wind, humidity],[.......],[.......]]
+
+`[[day, description, high, low, precipitation, wind, humidity], [.......], [.......]]`
 
 ```ruby
 WeatherFinder::Scrapper.ten_day_weather(94041)
@@ -55,7 +58,7 @@ WeatherFinder::Scrapper.ten_day_weather(94041)
 
 ```
 
-4. The `weather_finder` gem also provides a command line interface(CLI). To use the CLI:
+The `weather_finder` gem also provides a command line interface(CLI). To use the CLI:
 
 ```ruby
 w = WeatherFinder::CLI.new
@@ -63,18 +66,18 @@ w = WeatherFinder::CLI.new
 w.call
 
 =begin
-What is the zip code you would like to know the weather at?
-exit to quit
-94041
-**************************************
-It is currently 74°
-But it feels like 74°
-With a UV index of 5 of 10
-**************************************
-Would you like to look at the hourly or 10 day forecast?
-Type 'hourly' or '10 day' to choose.
-type 'back' to choose a different zip code.
-Or type 'exit' to quit.
+  What is the zip code you would like to know the weather at?
+  exit to quit
+  94041
+  **************************************
+  It is currently 74°
+  But it feels like 74°
+  With a UV index of 5 of 10
+  **************************************
+  Would you like to look at the hourly or 10 day forecast?
+  Type 'hourly' or '10 day' to choose.
+  type 'back' to choose a different zip code.
+  Or type 'exit' to quit.
 =end
 
 ```
@@ -83,6 +86,7 @@ To bypass the interactive menu you can simply do:
 ```ruby
 
 w.weather_hourly(94041)
+
 w.weather_ten_day(94041)
 
 ```

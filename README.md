@@ -21,7 +21,75 @@ Or install it yourself as:
 
 ## Usage
 
+`basic_weather`
 
+Based on the zip code if you would like to get `[temperature, uv index, feels like]`
+
+```ruby
+WeatherFinder::Scrapper.basic_weather(94041)
+
+#=> ["66°", "0 of 10", "66°"]
+
+```
+
+`hourly_weather`
+
+Based on the zip code if you would like to get the hourly weather. Data will be returned as two dimensional array:
+
+`[[time, description, temperature, feels like, precipitation, humidity, wind], [.......],[.......]]`
+
+```ruby
+WeatherFinder::Scrapper.hourly_weather(94041)
+
+#=> [["11:30 am", "Mostly Sunny", "74°", "74°", "0%", "17%", "NNE 7 mph "], ["12:00 pm", "Mostly Sunny", "76°", "76°", "0%", "16%", "NNE 6 mph "], ["1:00 pm", "Mostly Sunny", "78°", "78°", "0%", "14%", "NNE 6 mph "], ...., ....]
+
+```
+
+`ten_day_weather`
+
+Based on the zip code if you would like to get the 10 day weather. Data will be returned as two dimensional array:
+
+`[[day, description, high, low, precipitation, wind, humidity], [.......], [.......]]`
+
+```ruby
+WeatherFinder::Scrapper.ten_day_weather(94041)
+
+#=> [["Tonight", "Clear", "--", "55°", "0%", "42%", "NNW 6 mph "], ["Fri", "Sunny", "85°", "54°", "0%", "29%", "N 9 mph "], ["Sat", "Sunny", "81°", "54°", "0%", "45%", "NNW 9 mph "], ....., .....]
+
+```
+
+The `weather_finder` gem also provides a command line interface(CLI). To use the CLI:
+
+```ruby
+w = WeatherFinder::CLI.new
+
+w.call
+
+=begin
+  What is the zip code you would like to know the weather at?
+  exit to quit
+  94041
+  **************************************
+  It is currently 74°
+  But it feels like 74°
+  With a UV index of 5 of 10
+  **************************************
+  Would you like to look at the hourly or 10 day forecast?
+  Type 'hourly' or '10 day' to choose.
+  type 'back' to choose a different zip code.
+  Or type 'exit' to quit.
+=end
+
+```
+To bypass the interactive menu you can simply do:
+
+```ruby
+
+w.weather_hourly(94041)
+
+w.weather_ten_day(94041)
+
+```
 
 ## Development
 
